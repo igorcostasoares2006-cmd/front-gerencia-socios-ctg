@@ -1,0 +1,1 @@
+# front-gerencia-socios-ctg
