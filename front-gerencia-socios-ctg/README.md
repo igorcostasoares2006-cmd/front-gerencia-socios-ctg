@@ -1,16 +1,118 @@
-# React + Vite
+# Front - Gerência de Sócios CTG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação front-end desenvolvida para apoio à gestão de sócios de um Centro de Tradições Gaúchas (CTG), permitindo o controle, visualização e organização das informações dos associados.
 
-Currently, two official plugins are available:
+## 📌 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este sistema faz parte de uma iniciativa de extensão do IFSul - Câmpus Charqueadas, com o objetivo de desenvolver uma solução tecnológica para auxiliar entidades tradicionalistas na administração de seus sócios.
 
-## React Compiler
+A aplicação permite:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Cadastro de sócios
+- Consulta e listagem de associados
+- Atualização de dados cadastrais
+- Exclusão de registros
+- Interface amigável para usuários administrativos
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- HTML5
+- CSS3
+- JavaScript
+- [Framework utilizado, se houver – ex: React, Vue, etc.]
+- [Bibliotecas adicionais, se aplicável]
+
+## 📂 Estrutura do Projeto
+
+```bash
+front-gerencia-socios-ctg/
+├── public/           # Arquivos públicos
+├── src/              # Código-fonte da aplicação
+│   ├── components/   # Componentes reutilizáveis
+│   ├── pages/        # Páginas da aplicação
+│   ├── services/     # Comunicação com API
+│   └── assets/       # Imagens, estilos, etc.
+├── package.json      # Dependências e scripts
+└── README.md         # Documentação do projeto
+```
+
+## ⚙️ Instalação e Execução
+
+### Pré-requisitos
+
+- Node.js (versão recomendada: >= 16)
+- Gerenciador de pacotes (npm ou yarn)
+
+### Passos
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/IFSul-Charqueadas-Extensao/front-gerencia-socios-ctg.git
+```
+
+2. Acesse a pasta do projeto:
+```bash
+cd front-gerencia-socios-ctg
+```
+
+3. Instale as dependências:
+```bash
+npm install
+```
+
+4. Execute a aplicação:
+```bash
+npm start
+```
+
+5. Acesse no navegador:
+http://localhost:3000
+
+## 🔌 Integração com Backend
+
+Este projeto depende de uma API para persistência dos dados. Certifique-se de:
+
+- Configurar a URL da API no arquivo de ambiente (ex: `.env`)
+- Garantir que o backend esteja em execução
+
+Exemplo:
+```env
+REACT_APP_API_URL=http://localhost:8080
+```
+
+## 🧪 Testes
+
+Caso implementado:
+
+```bash
+npm test
+```
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas!
+
+Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch:
+```bash
+git checkout -b minha-feature
+```
+3. Commit suas alterações:
+```bash
+git commit -m "Minha nova feature"
+```
+4. Envie para o repositório:
+```bash
+git push origin minha-feature
+```
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto é de caráter acadêmico e pode ser utilizado para fins educacionais.
+
+## 👨‍🏫 Projeto de Extensão
+
+Desenvolvido no âmbito do Instituto Federal Sul-rio-grandense (IFSul), com foco na formação prática dos estudantes e atendimento à comunidade.
