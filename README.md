@@ -62,11 +62,11 @@ npm install
 
 4. Execute a aplicação:
 ```bash
-npm start
+npm run dev
 ```
 
 5. Acesse no navegador:
-http://localhost:3000
+http://localhost:5173
 
 ## 🔌 Integração com Backend
 
