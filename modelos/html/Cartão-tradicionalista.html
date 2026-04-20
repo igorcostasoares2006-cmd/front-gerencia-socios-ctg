@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartão Tradicionalista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <h2>CTG - Gestão</h2>
+            <ul>
+                <li>Dashboard</li>
+                <li>Sócios</li>
+                <li>Contrato</li>
+                <li class="active">Cartão MTG</li>
+            </ul>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="content">
+
+            <h1>Ficha do Cartão Tradicionalista</h1>
+            <p class="sub">Preencha os dados para solicitar o cartão tradicionalista MTG</p>
+
+            <!-- DADOS PESSOAIS -->
+            <section class="card">
+                <h3>Dados Pessoais</h3>
+
+                <div class="grid">
+                    <input type="text" placeholder="Nome do Associado">
+                    <input type="text" placeholder="RT (Registro Tradicionalista)">
+                    <input type="text" placeholder="RG ou Certidão">
+                    <input type="text" placeholder="CPF">
+                    <input type="date">
+                    <input type="text" placeholder="Telefone">
+                </div>
+            </section>
+
+            <!-- ENDEREÇO -->
+            <section class="card">
+                <h3>Endereço</h3>
+
+                <div class="grid">
+                    <input type="text" placeholder="Endereço">
+                    <input type="text" placeholder="Bairro">
+                    <input type="text" placeholder="CEP">
+                    <input type="text" placeholder="Cidade">
+                    <input type="text" placeholder="UF">
+                </div>
+            </section>
+
+            <!-- ASSOCIAÇÃO -->
+            <section class="card">
+                <h3>Dados da Associação</h3>
+
+                <div class="grid">
+                    <input type="text" placeholder="Nome da Entidade">
+                    <input type="text" placeholder="Dependente">
+                    <input type="text" placeholder="Matrícula">
+                    
+                    <select>
+                        <option>Categoria ou Função</option>
+                        <option>Sócio</option>
+                        <option>Peão</option>
+                        <option>Prenda</option>
+                    </select>
+
+                    <input type="date">
+                    <input type="text" placeholder="Nome do Patrão">
+                </div>
+            </section>
+
+            <button class="btn">Gerar Prévia da Ficha</button>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
