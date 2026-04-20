@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Contrato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- MENU -->
+    <aside class="sidebar">
+        <h2>CTG - Gestão</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Sócios</li>
+            <li class="active">Contrato</li>
+            <li>Cartão MTG</li>
+        </ul>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="content">
+
+        <h1>Gerar Contrato de Sociedade</h1>
+        <p class="sub">Preencha os dados para gerar o contrato</p>
+
+        <!-- DADOS DO SÓCIO -->
+        <section class="card">
+            <h3>Dados do Sócio</h3>
+
+            <div class="grid">
+                <input type="text" placeholder="Nome Completo">
+                <input type="text" placeholder="Telefone">
+                <input type="text" placeholder="CPF">
+                <input type="text" placeholder="RG">
+            </div>
+        </section>
+
+        <!-- ENDEREÇO -->
+        <section class="card">
+            <h3>Endereço</h3>
+
+            <div class="grid">
+                <input type="text" placeholder="Rua">
+                <input type="text" placeholder="Número">
+                <input type="text" placeholder="Bairro">
+                <input type="text" placeholder="Cidade">
+            </div>
+        </section>
+
+        <!-- DEPENDENTES -->
+        <section class="card">
+            <div class="header-flex">
+                <h3>Dependentes Dançarinos</h3>
+                <button class="btn-small">+ Adicionar Dependente</button>
+            </div>
+
+            <p class="empty">
+                Nenhum dependente adicionado. Clique em "Adicionar Dependente" para incluir.
+            </p>
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
