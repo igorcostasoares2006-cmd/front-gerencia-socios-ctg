@@ -310,10 +310,6 @@
         <p>Visão geral do sistema de sócios</p>
       </div>
 
-      <button class="btn" onclick="novoSocio()">
-        + Novo Sócio
-      </button>
-
     </div>
 
     <!-- CARDS -->
@@ -514,28 +510,6 @@
         }
 
       });
-
-    }
-
-    // BOTÃO NOVO SÓCIO
-
-    function novoSocio(){
-
-      const nome = prompt("Digite o nome do novo sócio:");
-
-      if(nome){
-
-        socios.unshift({
-          nome: nome,
-          data: new Date().toLocaleDateString(),
-          status: "Ativo",
-          pagamento: "Em dia"
-        });
-
-        atualizarIndicadores();
-        carregarSocios();
-
-      }
 
     }
 
