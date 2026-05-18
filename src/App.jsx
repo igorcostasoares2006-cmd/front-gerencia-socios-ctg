@@ -5,6 +5,7 @@ import Socios from './pages/Socios'
 import NovoSocio from './pages/NovoSocio'
 import Relatorios from './pages/Relatorios'
 import SocioDetalhe from './pages/SocioDetalhe'
+import Pagamentos from './pages/Pagamentos'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/socios/novo" element={<NovoSocio />} />
           <Route path="/socios/:id" element={<SocioDetalhe />} />
           <Route path="/relatorios" element={<Relatorios />} />
+          <Route path="/pagamentos" element={<Pagamentos />} />
         </Routes>
       </BrowserRouter>
     </ToastProvider>

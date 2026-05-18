@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, Users, FileText, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Users, FileText, CreditCard, Menu, X } from 'lucide-react'
 
 const links = [
-  { to: '/',          label: 'Painel',     icon: LayoutDashboard, end: true },
-  { to: '/socios',    label: 'Sócios',     icon: Users },
-  { to: '/relatorios',label: 'Relatórios', icon: FileText },
+  { to: '/',           label: 'Painel',     icon: LayoutDashboard, end: true },
+  { to: '/socios',     label: 'Sócios',     icon: Users },
+  { to: '/pagamentos', label: 'Pagamentos', icon: CreditCard },
+  { to: '/relatorios', label: 'Relatórios', icon: FileText },
 ]
 
 export default function Sidebar() {

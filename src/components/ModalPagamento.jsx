@@ -32,8 +32,8 @@ function isoParaBR(iso) {
 const MESES_OPCOES = gerarMeses()
 const inputClass = 'w-full px-3.5 py-3.5 border-none rounded-xl bg-gray-100 text-sm outline-none focus:ring-2 focus:ring-blue-200'
 
-export default function ModalPagamento({ nomeSocio, onFechar, onSalvar }) {
-  const [mes, setMes] = useState(MESES_OPCOES[0])
+export default function ModalPagamento({ nomeSocio, mesPadrao, onFechar, onSalvar }) {
+  const [mes, setMes] = useState(() => mesPadrao ?? MESES_OPCOES[0])
   const [valor, setValor] = useState('R$ 80,00')
   const [data, setData] = useState(hojeISO())
   const [confirmado, setConfirmado] = useState(false)
