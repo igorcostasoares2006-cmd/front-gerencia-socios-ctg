@@ -4,23 +4,22 @@ const BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 const INVERNADA_TO_CATEGORIA = {
   'Nenhuma': '1',
-  'Pre Mirim': '2',
+  'Pré-Mirim': '2',
   'Mirim': '3',
   'Juvenil': '4',
-  'Adulto': '5',
-  'Veterano': '6',
-  'Xiru': '7',
+  'Adulta': '5',
+  'Veterana / Xiru': '6',
   'Chula': '8'
 };
 
 const CATEGORIA_TO_INVERNADA = {
   '1': 'Nenhuma',
-  '2': 'Pre Mirim',
+  '2': 'Pré-Mirim',
   '3': 'Mirim',
   '4': 'Juvenil',
-  '5': 'Adulto',
-  '6': 'Veterano',
-  '7': 'Xiru',
+  '5': 'Adulta',
+  '6': 'Veterana / Xiru',
+  '7': 'Veterana / Xiru',
   '8': 'Chula'
 };
 
@@ -210,30 +209,154 @@ export const api = {
     }
   },
 
-  async registrarPagamento(socioId, { mes, valor, data }) {
-    const [nomeMes, anoStr] = mes.split('/');
-    const mesNum = MESES_NOMES.indexOf(nomeMes) + 1;
-    const ano = parseInt(anoStr);
-    const valorNum = parseFloat(valor.replace(/[^\d,]/g, '').replace(',', '.'));
-    const [d, m, y] = data.split('/');
-    const dataISO = `${y}-${m}-${d}`;
-
+  // === MENSALIDADES ===
+  async getMensalidades() {
     try {
-      const mensalidadeRes = await fetch(`${BASE_URL}/mensalidades`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ socio_id: socioId, mes: mesNum, ano, valor: valorNum, status: 'Pago', data_vencimento: dataISO })
-      });
-      if (!mensalidadeRes.ok) throw await parseError(mensalidadeRes, 'Erro ao criar mensalidade');
-      const mensalidade = await mensalidadeRes.json();
+      const res = await fetch(`${BASE_URL}/mensalidades`);
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao buscar mensalidades');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
 
-      const pagamentoRes = await fetch(`${BASE_URL}/pagamentos`, {
+  async createMensalidade(data) {
+    try {
+      const res = await fetch(`${BASE_URL}/mensalidades`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mensalidade_id: mensalidade.id, data_pagamento: dataISO, forma_pagamento: 'Dinheiro', valor_pago: valorNum, multa_juros_aplicados: 0 })
+        body: JSON.stringify(data)
       });
-      if (!pagamentoRes.ok) throw await parseError(pagamentoRes, 'Erro ao registrar pagamento');
-      return await pagamentoRes.json();
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao criar mensalidade');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  async updateMensalidade(id, data) {
+    try {
+      const res = await fetch(`${BASE_URL}/mensalidades/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao atualizar mensalidade');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  async deleteMensalidade(id) {
+    try {
+      const res = await fetch(`${BASE_URL}/mensalidades/${id}`, {
+        method: 'DELETE'
+      });
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao excluir mensalidade');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  // === PAGAMENTOS ===
+  async getPagamentos() {
+    try {
+      const res = await fetch(`${BASE_URL}/pagamentos`);
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao buscar pagamentos');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  async createPagamento(data) {
+    try {
+      const res = await fetch(`${BASE_URL}/pagamentos`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao registrar pagamento');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  async updatePagamento(id, data) {
+    try {
+      const res = await fetch(`${BASE_URL}/pagamentos/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao atualizar pagamento');
+      }
+      return await res.json();
+    } catch (err) {
+      if (err instanceof TypeError || err.message === 'Failed to fetch') {
+        const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
+        networkErr.isNetworkError = true;
+        throw networkErr;
+      }
+      throw err;
+    }
+  },
+
+  async deletePagamento(id) {
+    try {
+      const res = await fetch(`${BASE_URL}/pagamentos/${id}`, {
+        method: 'DELETE'
+      });
+      if (!res.ok) {
+        throw await parseError(res, 'Erro ao excluir pagamento');
+      }
+      return await res.json();
     } catch (err) {
       if (err instanceof TypeError || err.message === 'Failed to fetch') {
         const networkErr = new Error('Falha de comunicação com o servidor. Verifique se o backend está rodando.');
