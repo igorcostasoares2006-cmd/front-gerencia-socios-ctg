@@ -8,9 +8,13 @@ export default defineConfig({
     react(),
   ],
   server: {
+    host: '0.0.0.0', // gemini - Força o Vite a escutar todas as interfaces de rede, não só o localhost
+    strictPort: true, // gemini - Impede o Vite de mudar de porta caso a 8004 balance
+    cors: true,       // gemini - Libera compartilhamento de recursos entre o domínio e a porta
     port: 8004,
     allowedHosts: [
-      'if4health.charqueadas.ifsul.edu.br' // Removido o acento do "i"
+      'if4health.charqueadas.ifsul.edu.br',
+      'extensao.charqueadas.ifsul.edu.br'      
     ],
     proxy: {
       '/api': {
