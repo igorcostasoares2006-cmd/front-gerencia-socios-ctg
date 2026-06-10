@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useToast } from '../contexts/ToastContext'
-import { formatarCPF } from '../utils/formattingUtils'
+import { validarCPF, formatarCPF, formatarTelefone, formatarCEP, validarCEP } from '../utils/formattingUtils'
 
 const campoVazio = { nome: '', cpf: '' }
 
@@ -50,7 +50,6 @@ export default function ModalDependente({ onFechar, onSalvar, socioMatricula = '
               type="text"
               placeholder="000.000.000-00"
               value={form.cpf}
-              maxLength={14}
               onChange={e => setField('cpf', formatarCPF(e.target.value))}
               className={inputClass}
             />
@@ -71,6 +70,16 @@ export default function ModalDependente({ onFechar, onSalvar, socioMatricula = '
             <select value={String(form.dancarino)} onChange={e => setField('dancarino', e.target.value === 'true')} className={inputClass}>
               <option value="true">Sim</option>
               <option value="false">Não</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-bold">Categoria</label>
+            <select value={String(form.categoria)} onChange={e => setField('categoria', e.target.value)} className={inputClass}>
+              <option value="true">Dente-de-Leite</option>
+              <option value="false">Pré-Mirim</option>
+              <option value="false">Mirim</option>
+              <option value="false">Juvenil</option>
             </select>
           </div>
         </div>
